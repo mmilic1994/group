@@ -21,6 +21,15 @@ class CreateQuestionsTable extends Migration
             $table->string('created_at')->nullable();
             $table->string('updated_at')->nullable();
         });
+
+        Schema::create('answers', function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('user_id');
+            $table->string('question_id')->nullable();
+            $table->timestamp('text')->nullable();
+            $table->string('created_at')->nullable();
+            $table->string('updated_at')->nullable();
+        });
     }
 
     /**
