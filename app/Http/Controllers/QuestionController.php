@@ -31,4 +31,17 @@ class QuestionController extends Controller
     return 'This is a detail of a question';
     
    }
+
+   public function form() {
+    
+    $form = view("questions/form/form");
+
+    $wrapper = view("questions/form/wrapper", [
+      "content" => $form
+    ]);
+    
+    return $wrapper;
+
+
+   }
 }
