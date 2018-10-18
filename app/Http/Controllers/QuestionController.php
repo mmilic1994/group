@@ -11,9 +11,7 @@ class QuestionController extends Controller
    {
     // $question = Question::orderBy('created_at', 'asc')->get();
     
-    $view = view('questions/index', [
-        
-    ]);
+    $view = view('questions/index');
 
     return $view;
     
@@ -25,7 +23,9 @@ class QuestionController extends Controller
     
     $answers = Answer::where('question_id', 1)->orderBy('created_at', 'asc')->get();
     $answers = $question->answers;
-    return 'This is a detail of a question';
+
+    $view = view('questions/show');
+    return $view;
     
    }
 
