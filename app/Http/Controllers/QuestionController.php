@@ -9,9 +9,12 @@ class QuestionController extends Controller
 {
    public function index()
    {
-    // $question = Question::orderBy('created_at', 'asc')->get();
-    
-    $view = view('questions/index');
+    $question = Question::orderBy('created_at', 'asc')->get();
+    // dd($question);
+
+    $view = view('questions/index', [
+        'questions' => $question
+    ]);
 
     return $view;
     
