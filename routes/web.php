@@ -22,5 +22,6 @@ Route::get('/categories', 'CategoryController@index');
 Route::get("/questions/form", "QuestionController@form");
 
 Route::get("/categories", "CategoryController@index");
-Route::get("/answers/1", "AnswerController@show");
-Route::post("/answers/1", "AnswerController@vote");
+
+Route::get("/answers/1", 'AnswerController@show');
+Route::post("/answers/1", 'AnswerController@vote');

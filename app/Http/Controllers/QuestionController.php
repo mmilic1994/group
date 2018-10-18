@@ -17,12 +17,9 @@ class QuestionController extends Controller
    public function show()
    {
     $question =  Question::where('id', 1)->first();
-    $answers = $question->answers() 
-     ->orderBy('created_at', 'asc')
-     ->get();
     
-     dd($answers);
-     
+    $answers = Answer::where('questions_id', 1)->orderBy('created_at', 'asc')->get();
+    $answers = $question->answers;
     return 'This is a detail of a question';
     
    }

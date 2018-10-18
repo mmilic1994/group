@@ -4,8 +4,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Answer 1</title>
- 
     <style>
+
 body {
     font-family: Arial;
     max-width: 1000px;
@@ -20,9 +20,11 @@ body {
     background-color: #efefef;
     padding: 2em;
 }
+
 .question h2 {
     margin: 0 0 0.5em;
 }
+
 .answer {
     background-color: #f7f7f7;
     padding: 2em;
@@ -37,48 +39,37 @@ body {
     color: gray;
     margin-right: 0.33em;
 }
+
 .answer .votes form {
     margin: 0 0 0 0.5em;
 }
+
     </style>
-</head>
-<body>
- 
-    <main>
- 
-        <div class="question">
-            <div class="label">Question:</div>
- 
-            <h2>{{ $answer->question->table }}</h2>
- 
-            <div>
-                {{ $answer->question->text }}
+    </head>
+
+    <body>
+        <main>
+            <div class="question">
+                <div class="label">Question:</div>
+                <h2>{{ $answer->question->title }}</h2>
+                <div>
+                    {{ $answer->question->text }}
+                </div>
             </div>
-        </div>
- 
-        <div class="answer">
- 
-            <div class="label">Answer:</div>
- 
-            <div class="text">
-                {{ $answer->text }}
-            </div>
- 
-            <div class="votes">
-                <span>Rating:</span> {{ $answer->rating }}
- 
+            <div class="answer">
+                <div class="label">Answer:</div>
+                <div class="text">
+                    {{ $answer->text}}
+                </div>
+                <div class="votes">
+                    <span>Rating:</span> {{ $answer->rating }}
                 <form action="" method="post">
-                    @csrf
- 
-                    <input type="submit" name="up" value="+1">
-                    <input type="submit" name="down" value="-1">
- 
-                </form>
+                        @csrf
+                        <input type="submit" name="up" value="+1">
+                        <input type="submit" name="down" value="-1">
+                    </form>
+                </div>
             </div>
- 
         </div>
- 
-    </div>
- 
-</body>
-</html>
+    </body>
+    </html>

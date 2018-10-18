@@ -2,22 +2,20 @@
 
 namespace App\Http\Controllers;
 
-use App\Answer;
 use Illuminate\Http\Request;
+use App\Answer;
 
 class AnswerController extends Controller
 {
-    public function show()
-    {
-        $answer =  Answer::find(1);
+    public function show() {
+        $answer = Answer::find(1);
 
         return view('answers/show', compact('answer'));
     }
 
-    public function vote()
-    {
+    public function vote() {
         $request = request();
- 
+        
         $answer = Answer::find(1);
         
         $vote = new \App\Vote;
@@ -30,10 +28,10 @@ class AnswerController extends Controller
             $vote->vote = -1;
             $answer->rating--; 
         }
-        
+
         $vote->save();
         $answer->save();
-        
+
         return back();
     }
 }
