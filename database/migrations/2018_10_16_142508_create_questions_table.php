@@ -17,7 +17,7 @@ class CreateQuestionsTable extends Migration
             $table->increments('id');
             $table->string('user_id');
             $table->string('title')->nullable();
-            $table->timestamp('text')->nullable();
+            $table->text('text')->nullable();
             $table->string('created_at')->nullable();
             $table->string('updated_at')->nullable();
         });
@@ -26,7 +26,7 @@ class CreateQuestionsTable extends Migration
             $table->increments('id');
             $table->string('user_id');
             $table->string('question_id')->nullable();
-            $table->timestamp('text')->nullable();
+            $table->text('text')->nullable();
             $table->string('created_at')->nullable();
             $table->string('updated_at')->nullable();
         });
