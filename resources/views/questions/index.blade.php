@@ -1,4 +1,6 @@
-@extends 
+@extends('questions/layout')
+
+@section('content')
 
 <section id="banner">
     <div class="container">
@@ -31,3 +33,5 @@
         </div>
     </div>
 </section>
+
+@endsection

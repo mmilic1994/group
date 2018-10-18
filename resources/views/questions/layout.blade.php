@@ -17,7 +17,7 @@
 
     <!-- NAVBAR -->
 
-    <!-- CONTENT -->
+    @yield('content')
 
     <!-- FOOTER -->
 
