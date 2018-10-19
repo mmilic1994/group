@@ -10,7 +10,7 @@
 
 <section id="questions">
 
-  @foreach ($questions as $question)
+@foreach ($questions as $question)
 
   
 
@@ -31,11 +31,11 @@
             </div>
             <div class="question-right">
                 <div class="question-name">
-                    <a href="#">{{ $question->title }} 
+                    <a href="{{ action('QuestionController@show', ['id' => $question->id]) }}">{{ $question->title }} 
                   </a>
                 </div>
                 <div class="question-info">
-                    asked at 2017-03-03 14:23:22 by <a href="">slavo</a>
+                    asked at {{ $question->created_at }} by <a href="">{{ $question->user_id }}</a>
                 </div>
             </div>
         </div>

@@ -20,14 +20,17 @@ class QuestionController extends Controller
     
    }
 
-   public function show()
+   public function show($id)
    {
-    $question =  Question::where('id', 1)->first();
+    $question =  Question::findOrFail($id);
     
-    $answers = Answer::where('question_id', 1)->orderBy('created_at', 'asc')->get();
+    $answers = Answer::where('question_id', $id)->orderBy('created_at', 'asc')->get();
     $answers = $question->answers;
 
-    $view = view('questions/show');
+    $view = view('questions/show', [
+        'questions' => $question,
+        'answers' => $answers
+    ]);
     return $view;
     
    }

@@ -7,16 +7,16 @@ use App\Answer;
 
 class AnswerController extends Controller
 {
-    public function show() {
-        $answer = Answer::find(1);
+    public function show($id) {
+        $answer = Answer::find($id);
 
         return view('answers/show', compact('answer'));
     }
 
-    public function vote() {
+    public function vote($id) {
         $request = request();
         
-        $answer = Answer::find(1);
+        $answer = Answer::findOrFail($id);
         
         $vote = new \App\Vote;
         $vote->answer_id = $answer->id;

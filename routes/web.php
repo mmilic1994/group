@@ -16,12 +16,18 @@ Route::get('/', function () {
 });
 
 Route::get('/questions', 'QuestionController@index');
-Route::get('/questions/1', 'QuestionController@show');
+Route::get('/questions/{id}', 'QuestionController@show');
 Route::get('/categories', 'CategoryController@index');
 
 Route::get("/questions/form", "QuestionController@form");
 
 Route::get("/categories", "CategoryController@index");
 
-Route::get("/answers/1", 'AnswerController@show');
-Route::post("/answers/1", 'AnswerController@vote');
+Route::get("/answers/{id}", 'AnswerController@show');
+Route::post("/answers/{id}", 'AnswerController@vote');
+
+Route::get('/categories/create', 'CategoryController@create')->name('categories.create'); //gives the route a name that can be referred to in blade
+Route::get('/categories/{id}/edit', 'CategoryController@edit')->name('categories.edit');
+Route::post('/categories/create', 'CategoryController@store');
+Route::post('/categories/{id}/edit', 'CategoryController@store');
+
